@@ -14,9 +14,10 @@ namespace PrimesAndBases
         static void Main(string[] args)
         {
             new Program().InitiateletterLibrary();
-            int selection = 0;
+            int selection = int.MaxValue;
             do
             {
+                selection = int.MaxValue;
                 Console.Clear();
                 Console.WriteLine("╔════════════════════════╗ ");
                 Console.WriteLine("║                        ║");
@@ -25,7 +26,17 @@ namespace PrimesAndBases
                 Console.WriteLine("║    [0] Exit            ║");
                 Console.WriteLine("║                        ║");
                 Console.WriteLine("╚════════════════════════╝");
-                selection = int.Parse(Console.ReadLine());
+
+                try
+                {
+                    selection = int.Parse(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("\nPress enter to continue");
+                    Console.ReadLine();
+                }
 
                 switch (selection)
                 {
@@ -75,12 +86,22 @@ namespace PrimesAndBases
 
         private void CalculateFinal()
         {
-            double finalValue = Math.Pow(Primes[0], calcList[0]);
-            for (int i = 1; i < calcList.Count; i++)
+            try
             {
-                finalValue *= Math.Pow(Primes[i], calcList[i]);
+                double finalValue = Math.Pow(Primes[0], calcList[0]);
+                for (int i = 1; i < calcList.Count; i++)
+                {
+                    finalValue *= Math.Pow(Primes[i], calcList[i]);
+                }
+                Console.WriteLine("Calculated value: {0}", finalValue);
+                Console.WriteLine("\nPress enter to continue");
+                Console.ReadLine();
             }
-            Console.WriteLine("Calculated value: {0}", finalValue);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
+            }
         }
 
         private void DisplayTutorial()
