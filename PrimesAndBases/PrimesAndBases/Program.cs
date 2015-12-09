@@ -21,9 +21,13 @@ namespace PrimesAndBases
                 Console.Clear();
                 Console.WriteLine("╔════════════════════════╗ ");
                 Console.WriteLine("║                        ║");
+                Console.WriteLine("║    Primes and Bases    ║");
+                Console.WriteLine("║                        ║");
+                Console.WriteLine("║                        ║");
                 Console.WriteLine("║    [1] Begin           ║");
                 Console.WriteLine("║    [2] How it works    ║");
                 Console.WriteLine("║    [0] Exit            ║");
+                Console.WriteLine("║                        ║");
                 Console.WriteLine("║                        ║");
                 Console.WriteLine("╚════════════════════════╝");
 
@@ -41,7 +45,8 @@ namespace PrimesAndBases
                 switch (selection)
                 {
                     case 1:
-                        Console.WriteLine("Enter a word ranging from 'a' to 'd'.");
+                        Console.Clear();
+                        Console.WriteLine("Enter a word, with letters ranging from 'A' to 'Z'.");
                         new Program().CalculateWords(Console.ReadLine());
                         break;
                     case 2:
@@ -54,10 +59,29 @@ namespace PrimesAndBases
 
         private void InitiateletterLibrary()
         {
+            letterLibrary.Clear();
             letterLibrary.Add(new Letter("a", 1));
             letterLibrary.Add(new Letter("b", 2));
             letterLibrary.Add(new Letter("c", 3));
             letterLibrary.Add(new Letter("d", 4));
+            letterLibrary.Add(new Letter("e", 5));
+            letterLibrary.Add(new Letter("f", 6));
+            letterLibrary.Add(new Letter("g", 7));
+            letterLibrary.Add(new Letter("h", 8));
+            letterLibrary.Add(new Letter("i", 9));
+            letterLibrary.Add(new Letter("j", 10));
+            letterLibrary.Add(new Letter("k", 11));
+            letterLibrary.Add(new Letter("l", 12));
+            letterLibrary.Add(new Letter("m", 13));
+            letterLibrary.Add(new Letter("n", 14));
+            letterLibrary.Add(new Letter("o", 15));
+            letterLibrary.Add(new Letter("p", 16));
+            letterLibrary.Add(new Letter("q", 17));
+            letterLibrary.Add(new Letter("r", 18));
+            letterLibrary.Add(new Letter("s", 18));
+            letterLibrary.Add(new Letter("t", 19));
+            letterLibrary.Add(new Letter("v", 3));
+            letterLibrary.Add(new Letter("w", 4));
         }
 
         private void CalculateWords(string input)
@@ -77,6 +101,60 @@ namespace PrimesAndBases
                         break;
                     case 'd':
                         calcList.Add(4);
+                        break;
+                    case 'e':
+                        calcList.Add(5);
+                        break;
+                    case 'f':
+                        calcList.Add(6);
+                        break;
+                    case 'g':
+                        calcList.Add(7);
+                        break;
+                    case 'h':
+                        calcList.Add(8);
+                        break;
+                    case 'i':
+                        calcList.Add(9);
+                        break;
+                    case 'j':
+                        calcList.Add(10);
+                        break;
+                    case 'k':
+                        calcList.Add(11);
+                        break;
+                    case 'l':
+                        calcList.Add(12);
+                        break;
+                    case 'm':
+                        calcList.Add(13);
+                        break;
+                    case 'n':
+                        calcList.Add(14);
+                        break;
+                    case 'o':
+                        calcList.Add(15);
+                        break;
+                    case 'p':
+                        calcList.Add(16);
+                        break;
+                    case 'q':
+                        calcList.Add(17);
+                        break;
+                    case 'r':
+                        calcList.Add(18);
+                        break;
+                    case 's':
+                        calcList.Add(19);
+                        break;
+                    case 't':
+                        calcList.Add(20);
+                        break;
+                    case 'v':
+                        calcList.Add(21);
+                        break;
+                    case 'w':
+                        calcList.Add(22);
                         break;
                 }
             }
@@ -106,7 +184,30 @@ namespace PrimesAndBases
 
         private void DisplayTutorial()
         {
-
+            Console.Clear();
+            Console.WriteLine("Okay so as you've probably figured out, this program is calculating a value from words. What you didn't is that it's calculating the value of the word by the use of fractions, prime numbers and letter values");
+            Console.WriteLine("\nPress enter to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("The first thing we need to do is get input from the user. We then match all the letters in the string(input) and if we have a letter with a value that matches the one in the string, we add a value to the 'calculation list'.");
+            Console.WriteLine("\nPress enter to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("We then proceed to the final calculation by first  calculating the first values from the list since we'll later on multiply the base value with the rest of the values. Illustration, 'value *= first added prime raised to the power of the first added letter value'");
+            Console.WriteLine("\nPress enter to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("By now you will probably have an idea of how it works and why it works. Below i'll just add the algortihm for the calculation, which you'll probably understand!\n");
+            Console.WriteLine("= Super sexy algortihm =");
+            Console.WriteLine("[1]\tGet input");
+            Console.WriteLine("[2]\tMatch input with letter list");
+            Console.WriteLine("[3]\tCalculate first value with primes as base and letters as potent");
+            Console.WriteLine("[4]\tCalculate final by multiplying every value in the lists");
+            Console.WriteLine("[5]\t????");
+            Console.WriteLine("[6]\tPROFIT!!!");
+            Console.WriteLine("= Super sexy algortihm =");
+            Console.WriteLine("\nPress enter to continue...");
+            Console.ReadKey();
         }
     }
 }
