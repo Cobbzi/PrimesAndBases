@@ -166,10 +166,10 @@ namespace PrimesAndBases
         {
             try
             {
-                double finalValue = Math.Pow(Primes[0], calcList[0]);
+                long finalValue = long.Parse(Math.Pow(Primes[0], calcList[0]).ToString());
                 for (int i = 1; i < calcList.Count; i++)
                 {
-                    finalValue *= Math.Pow(Primes[i], calcList[i]);
+                    finalValue *= long.Parse(Math.Pow(Primes[i], calcList[i]).ToString());
                 }
                 Console.WriteLine("Calculated value: {0}", finalValue);
                 Console.WriteLine("\nPress enter to continue");
