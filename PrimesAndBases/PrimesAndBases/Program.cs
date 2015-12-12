@@ -71,7 +71,6 @@ namespace PrimesAndBases
             } while (selection != 0);
         }
 
-<<<<<<< HEAD
         private void PopulateList()
         {
             char[] character = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray(); // Make every letter lowercase and put them in an array
@@ -84,38 +83,6 @@ namespace PrimesAndBases
                 Console.WriteLine(letterLibrary[i].name);
             }
         }
-=======
-        // Looks bad but it's fast!
-        private void InitiateletterLibrary()
-        {
-            letterLibrary.Clear();
-            letterLibrary.Add(new Letter("a", 1));
-            letterLibrary.Add(new Letter("b", 2));
-            letterLibrary.Add(new Letter("c", 3));
-            letterLibrary.Add(new Letter("d", 4));
-            letterLibrary.Add(new Letter("e", 5));
-            letterLibrary.Add(new Letter("f", 6));
-            letterLibrary.Add(new Letter("g", 7));
-            letterLibrary.Add(new Letter("h", 8));
-            letterLibrary.Add(new Letter("i", 9));
-            letterLibrary.Add(new Letter("j", 10));
-            letterLibrary.Add(new Letter("k", 11));
-            letterLibrary.Add(new Letter("l", 12));
-            letterLibrary.Add(new Letter("m", 13));
-            letterLibrary.Add(new Letter("n", 14));
-            letterLibrary.Add(new Letter("o", 15));
-            letterLibrary.Add(new Letter("p", 16));
-            letterLibrary.Add(new Letter("q", 17));
-            letterLibrary.Add(new Letter("r", 18));
-            letterLibrary.Add(new Letter("s", 18));
-            letterLibrary.Add(new Letter("t", 19));
-            letterLibrary.Add(new Letter("v", 3));
-            letterLibrary.Add(new Letter("w", 4));
-        }
-        
-        // We calculate the word by "switching" the input and checking each letter in the string
-        // Also very fast since it's a switch function
->>>>>>> origin/master
         private void CalculateWords(string input)
         {
             input = input.ToLower(); // make it all lowercase
@@ -208,7 +175,6 @@ namespace PrimesAndBases
             CalculateFinal();
         }
 
-        // We caclulate the final sum
         private void CalculateFinal()
         {
             try
