@@ -1,24 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace PrimesAndBases
 {
     class Program
     {
-        int[] Primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997 };
-        List<Letter> letterLibrary = new List<Letter>();
-        List<int> calcList = new List<int>();
+        uint[] Primes = new uint[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997 }; // The first 1000 prime numbers
+        List<int> calcList = new List<int>(); // Calculation list, no need for large data types
+        List<Letter> letterLibrary = new List<Letter>(); // Library of letters!
         static void Main(string[] args)
         {
-            new Program().InitiateletterLibrary();
-            int selection = int.MaxValue;
+            // Since this method is static, we need to call a new class and call it from there.
+            new Program().PopulateList();
+            new Program().Selection();
+        }
+
+        // Pretty self-explainatory content, no need for comments
+        // uint's because of the selections never needing to be negative values
+        private void Selection()
+        {
+            uint selection = uint.MaxValue;
             do
             {
-                selection = int.MaxValue;
+                selection = uint.MaxValue;
+                calcList.Clear();
+
                 Console.Clear();
+
+                // Super sexy style!
                 Console.WriteLine("╔════════════════════════╗ ");
                 Console.WriteLine("║                        ║");
                 Console.WriteLine("║    Primes and Bases    ║");
@@ -33,7 +43,7 @@ namespace PrimesAndBases
 
                 try
                 {
-                    selection = int.Parse(Console.ReadLine());
+                    selection = uint.Parse(Console.ReadLine());
                 }
                 catch (Exception ex)
                 {
@@ -46,46 +56,37 @@ namespace PrimesAndBases
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Enter a word, with letters ranging from 'A' to 'Z'.");
+                        Console.WriteLine("Enter a word, with letters ranging from 'A' to 'Z'.\n(All words might not work, there are some data type limitations)");
+
                         new Program().CalculateWords(Console.ReadLine());
                         break;
                     case 2:
                         new Program().DisplayTutorial();
+                        break;
+                    default:
+                        Console.WriteLine("Input not recognized.");
                         break;
                 }
 
             } while (selection != 0);
         }
 
-        private void InitiateletterLibrary()
+        private void PopulateList()
         {
-            letterLibrary.Clear();
-            letterLibrary.Add(new Letter("a", 1));
-            letterLibrary.Add(new Letter("b", 2));
-            letterLibrary.Add(new Letter("c", 3));
-            letterLibrary.Add(new Letter("d", 4));
-            letterLibrary.Add(new Letter("e", 5));
-            letterLibrary.Add(new Letter("f", 6));
-            letterLibrary.Add(new Letter("g", 7));
-            letterLibrary.Add(new Letter("h", 8));
-            letterLibrary.Add(new Letter("i", 9));
-            letterLibrary.Add(new Letter("j", 10));
-            letterLibrary.Add(new Letter("k", 11));
-            letterLibrary.Add(new Letter("l", 12));
-            letterLibrary.Add(new Letter("m", 13));
-            letterLibrary.Add(new Letter("n", 14));
-            letterLibrary.Add(new Letter("o", 15));
-            letterLibrary.Add(new Letter("p", 16));
-            letterLibrary.Add(new Letter("q", 17));
-            letterLibrary.Add(new Letter("r", 18));
-            letterLibrary.Add(new Letter("s", 18));
-            letterLibrary.Add(new Letter("t", 19));
-            letterLibrary.Add(new Letter("v", 3));
-            letterLibrary.Add(new Letter("w", 4));
-        }
+            char[] character = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray(); // Make every letter lowercase and put them in an array
+            for (int i = 0; i < character.Length; i++) // Loop through them all
+            {
+                letterLibrary.Add(new Letter(character[i], i + 1)); // Add new letter to the library
 
+                // Debug
+                Console.WriteLine("Added {0} with value {1}", character[i], i + 1);
+                Console.WriteLine(letterLibrary[i].name);
+            }
+        }
         private void CalculateWords(string input)
         {
+            input = input.ToLower(); // make it all lowercase
+            // Ugly but fast
             for (int i = 0; i < input.Length; i++)
             {
                 switch (input[i])
@@ -150,11 +151,23 @@ namespace PrimesAndBases
                     case 't':
                         calcList.Add(20);
                         break;
-                    case 'v':
+                    case 'u':
                         calcList.Add(21);
                         break;
-                    case 'w':
+                    case 'v':
                         calcList.Add(22);
+                        break;
+                    case 'w':
+                        calcList.Add(23);
+                        break;
+                    case 'x':
+                        calcList.Add(24);
+                        break;
+                    case 'y':
+                        calcList.Add(25);
+                        break;
+                    case 'z':
+                        calcList.Add(26);
                         break;
                 }
             }
@@ -166,22 +179,38 @@ namespace PrimesAndBases
         {
             try
             {
-                long finalValue = long.Parse(Math.Pow(Primes[0], calcList[0]).ToString());
-                for (int i = 1; i < calcList.Count; i++)
+                Console.Clear();
+
+                // BigInteger is the largest data type which isn't a double precision data type
+                // Double could've been used but we don't need the decimal precision but rather bigger integers
+                BigInteger finalValue = 1; // We set it to 1 because else we would be multiplying every result with 0
+
+                for (int i = 0; i < calcList.Count; i++)
                 {
-                    finalValue *= long.Parse(Math.Pow(Primes[i], calcList[i]).ToString());
+                    finalValue *= BigInteger.Parse(Math.Pow(Primes[i], calcList[i]).ToString()); // First prime ^ first letter and so on...
+
+                    // Just making sure we don't add a * sign in the beginning
+                    // Note: I was lazy so I didn't use a modulo operation or whatever it's called (lol)
+                    if (i < calcList.Count && i > 0)
+                        Console.Write($" * ({Primes[i]}^{calcList[i]})"); // Look on the other output for explanation
+                    else
+                        Console.Write($"({Primes[i]}^{calcList[i]})"); // Looks a little messy, but it's more efficient this way. It reads, ( Primes[i] ^ calcList[i] ) - easier now?
                 }
-                Console.WriteLine("Calculated value: {0}", finalValue);
+
+                Console.Write($" = {finalValue}"); // Printing the final value.
+                // Also, a little side note as you can see on the line above, I'm using one of the new features in C# 6.0! Thee string formatting shortener '$'!
+
                 Console.WriteLine("\nPress enter to continue");
-                Console.ReadLine();
+                Console.ReadKey();
             }
-            catch (Exception ex)
+            catch (Exception ex) // Print the exception that occured (in the case of it actually happening)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("\n" + ex.Message + "\nThe calculated value was likely to big for any datatype(yes, even BigInteger).\nTry another word!\n\nPress enter to continue...");
                 Console.ReadLine();
             }
         }
 
+        // I won't dare to comment on this haha
         private void DisplayTutorial()
         {
             Console.Clear();
@@ -193,7 +222,7 @@ namespace PrimesAndBases
             Console.WriteLine("\nPress enter to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("We then proceed to the final calculation by first  calculating the first values from the list since we'll later on multiply the base value with the rest of the values. Illustration, 'value *= first added prime raised to the power of the first added letter value'");
+            Console.WriteLine("We then proceed to the final calculation by setting the final value = 1, since we'll later on multiply it (avoid multiplying with 0). We then take the first prime in the list and use it as a base, we then raise the base value to the power of the first letter's value in the list. We then multiply all these values together, which can and will result in very large numbers (that's why I put a warning in the input section). To clarify, prime[n] ^ letter[n] where 'n' is the position in the list.");
             Console.WriteLine("\nPress enter to continue...");
             Console.ReadKey();
             Console.Clear();
@@ -201,8 +230,8 @@ namespace PrimesAndBases
             Console.WriteLine("= Super sexy algortihm =");
             Console.WriteLine("[1]\tGet input");
             Console.WriteLine("[2]\tMatch input with letter list");
-            Console.WriteLine("[3]\tCalculate first value with primes as base and letters as potent");
-            Console.WriteLine("[4]\tCalculate final by multiplying every value in the lists");
+            Console.WriteLine("[3]\tCalculate value with first prime as base and raise it to the first letter's value");
+            Console.WriteLine("[4]\tCalculate final by multiplying every value just calculated");
             Console.WriteLine("[5]\t????");
             Console.WriteLine("[6]\tPROFIT!!!");
             Console.WriteLine("= Super sexy algortihm =");

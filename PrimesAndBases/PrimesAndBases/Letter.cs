@@ -8,10 +8,10 @@ namespace PrimesAndBases
 {
     class Letter
     {
-        public string name;
+        public char name;
         public int value;
 
-        public Letter(string name, int value)
+        public Letter(char name, int value)
         {
             this.name = name;
             this.value = value;
