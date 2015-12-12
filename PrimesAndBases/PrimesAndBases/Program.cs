@@ -57,6 +57,7 @@ namespace PrimesAndBases
             } while (selection != 0);
         }
 
+        // Looks bad but it's fast!
         private void InitiateletterLibrary()
         {
             letterLibrary.Clear();
@@ -83,7 +84,9 @@ namespace PrimesAndBases
             letterLibrary.Add(new Letter("v", 3));
             letterLibrary.Add(new Letter("w", 4));
         }
-
+        
+        // We calculate the word by "switching" the input and checking each letter in the string
+        // Also very fast since it's a switch function
         private void CalculateWords(string input)
         {
             for (int i = 0; i < input.Length; i++)
@@ -162,6 +165,7 @@ namespace PrimesAndBases
             CalculateFinal();
         }
 
+        // We caclulate the final sum
         private void CalculateFinal()
         {
             try
